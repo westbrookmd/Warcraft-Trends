@@ -6,8 +6,10 @@ from django.views.generic import View
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-
 User = get_user_model()
+Bugs = 40
+
+
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -17,8 +19,8 @@ class HomeView(View):
 
 def get_data(request, *args, **kwargs):
     data = {
-        "sales": 100,
-        "customers": 10,
+        "Bugs": 1000,
+        "Users": 10,
     }
     return JsonResponse(data) # http response
 
@@ -29,8 +31,8 @@ class ChartData(APIView):
 
     def get(self, request, format=None):
         qs_count = User.objects.all().count()
-        labels = ["Users", "Blue", "Yellow", "Green", "Purple", "Orange"]
-        default_items = [qs_count, 23, 2, 3, 12, 2]
+        labels = ["Bugs", "Total Users", "Yellow", "Green", "Purple", "Orange"]
+        default_items = [Bugs, qs_count, 2, 3, 12, 2]
         data = {
                 "labels": labels,
                 "default": default_items,
