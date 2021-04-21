@@ -93,3 +93,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+src/credentials-Sheets.json
+src/credentialsSheets.json
+src/token-drive.pickle
+src/token-sheets.pickle
+src/token.json
+src/settings.py
