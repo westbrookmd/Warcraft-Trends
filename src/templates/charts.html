@@ -44,7 +44,6 @@ function setChart(){
         datasets: [{
             data: defaultData,
             backgroundColor: [
-                'rgba(255, 181, 79, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(170, 211, 114, 1)',
                 'rgba(255, 244, 104, 1)',
@@ -122,7 +121,6 @@ function setChart(){
             label: '# of Votes',
             data: defaultData,
             backgroundColor: [
-                'rgba(255, 181, 79, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(170, 211, 114, 1)',
                 'rgba(255, 244, 104, 1)',
@@ -172,7 +170,6 @@ function setChart(){
                 getRandomColor(),
             ],
             borderColor: [
-                'rgba(255, 181, 79, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(170, 211, 114, 1)',
                 'rgba(255, 244, 104, 1)',
@@ -203,7 +200,7 @@ function setChart(){
 
 <div class='row'>
     <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
-        <h1>Produce Sales</h1>
+        <h1>Shadowlands Beta Bug Reports</h1>
         <div class='col-sm-6'>
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>

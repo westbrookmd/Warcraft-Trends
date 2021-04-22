@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from rest_framework.views import APIView
 from rest_framework.response import Response
-import openpyxl
+import openpyxl, json
 #import json, requests
 #import pandas as pd
 
@@ -33,22 +33,18 @@ for i in range(2, 50):
 print(produceValues)
 
 
+with open('wow_issues.json') as json_file:
+    wowData = json.load(json_file)
 
-#print(sheet)
-
-#df = pd.read_excel ('produceSales.xlsx')
-
-
-# Download the JSON data from OpenWeatherMap.org's API.
-"""url = 'url_here'
-response = requests.get(url)
-response.raise_for_status()
-
-
-weatherData = json.loads(response.text)
-
-w = weatherData['json_group_here']"""
-
+wowClasses = []
+wowClassesUnclassified = 0
+for issue in range(len(wowData)-1):
+    try:
+        print ("Issue " + str(issue) + " Title: " + str(wowData[issue]['title']))
+        print ("Class: " + str(wowData[issue]['labels'][-1]['name']))
+        wowClasses.append(wowData[issue]['labels'][-1]['name'])
+    except:
+        wowClassesUnclassified += 1
 
 
 
@@ -61,14 +57,14 @@ group_class = ["Death Knight","Rogue: Subtlety""Priest: Shadow","Rogue: Assassin
 "Rogue: Assassination","Warlock: Affliction","Rogue: Subtlety",
 "Hunter","Priest","Rogue","Death Knight","Death Knight","Mage","Hunter","Paladin","Rogue","Mage",
 "Death Knight","Priest","Rogue","Priest","Mage","Mage","Mage","Priest","Shaman"]
-priests = sum('Priest' in s for s in group_class)
-Hunters = sum('Hunter' in s for s in group_class)
-Rogues = sum('Rogue' in s for s in group_class)
-Warlock = sum('Warlock' in s for s in group_class)
-Death_Knights = sum('Death Knight' in s for s in group_class)
-Mages = sum('Mage' in s for s in group_class)
-Shamans = sum('Shaman' in s for s in group_class)
-bug_count = len(number)
+priests = sum('Priest' in s for s in wowClasses)
+Hunters = sum('Hunter' in s for s in wowClasses)
+Rogues = sum('Rogue' in s for s in wowClasses)
+Warlocks = sum('Warlock' in s for s in wowClasses)
+Death_Knights = sum('Death Knight' in s for s in wowClasses)
+Mages = sum('Mage' in s for s in wowClasses)
+Shamans = sum('Shaman' in s for s in wowClasses)
+bug_count = (priests + Hunters + Rogues +  Warlocks +  Death_Knights +  Mages + Shamans)/10
 produce_count = len(produceNames)
 
 class HomeView(View):
@@ -91,11 +87,11 @@ class ChartData(APIView):
 
     def get(self, request, format=None):
         qs_count = user.objects.all().count()
-        #labels = ["Total Bugs", "Priests", "Hunters", "Rogues", "Warlocks", "Death Knights", "Mages", "Shamans"]
-        labels = produceNames
-        #default_items = [bug_count, priests, Hunters, Rogues, Warlock, Death_Knights, Mages, Shamans]
+        labels = ["Priests", "Hunters", "Rogues", "Warlocks", "Death Knights", "Mages", "Shamans"]
+        #labels = produceNames
+        default_items = [priests, Hunters, Rogues, Warlocks, Death_Knights, Mages, Shamans]
         
-        default_items = produceValues
+        #default_items = produceValues
         data = {
                 "labels": labels,
                 "default": default_items
