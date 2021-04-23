@@ -57,15 +57,21 @@ group_class = ["Death Knight","Rogue: Subtlety""Priest: Shadow","Rogue: Assassin
 "Rogue: Assassination","Warlock: Affliction","Rogue: Subtlety",
 "Hunter","Priest","Rogue","Death Knight","Death Knight","Mage","Hunter","Paladin","Rogue","Mage",
 "Death Knight","Priest","Rogue","Priest","Mage","Mage","Mage","Priest","Shaman"]
-priests = sum('Priest' in s for s in wowClasses)
+Priests = sum('Priest' in s for s in wowClasses)
 Hunters = sum('Hunter' in s for s in wowClasses)
 Rogues = sum('Rogue' in s for s in wowClasses)
 Warlocks = sum('Warlock' in s for s in wowClasses)
-Death_Knights = sum('Death Knight' in s for s in wowClasses)
+DeathKnights = sum('Death Knight' in s for s in wowClasses)
 Mages = sum('Mage' in s for s in wowClasses)
 Shamans = sum('Shaman' in s for s in wowClasses)
-bug_count = (priests + Hunters + Rogues +  Warlocks +  Death_Knights +  Mages + Shamans)/10
-produce_count = len(produceNames)
+DemonHunters = sum('Demon Hunter' in s for s in wowClasses)
+Druids = sum('Druid' in s for s in wowClasses)
+Monks = sum('Monk' in s for s in wowClasses)
+Paladins = sum('Paladin' in s for s in wowClasses)
+Warriors = sum('Warrior' in s for s in wowClasses)
+
+#bug_count = (priests + Hunters + Rogues +  Warlocks +  Death_Knights +  Mages + Shamans)/10
+#produce_count = len(produceNames)
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -87,9 +93,9 @@ class ChartData(APIView):
 
     def get(self, request, format=None):
         qs_count = user.objects.all().count()
-        labels = ["Priests", "Hunters", "Rogues", "Warlocks", "Death Knights", "Mages", "Shamans"]
+        labels = ["Priests", "Hunters", "Rogues", "Warlocks", "Death Knights", "Mages", "Shamans", "Demon Hunters", "Druids", "Monks", "Paladins", "Warriors"]
         #labels = produceNames
-        default_items = [priests, Hunters, Rogues, Warlocks, Death_Knights, Mages, Shamans]
+        default_items = [Priests, Hunters, Rogues, Warlocks, DeathKnights, Mages, Shamans, DemonHunters, Druids, Monks, Paladins, Warriors]
         
         #default_items = produceValues
         data = {
