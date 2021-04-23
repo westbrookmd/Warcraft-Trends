@@ -31,6 +31,18 @@ $.ajax({
         console.log(error_data)
     }
 })
+var priestColor = 'rgba(255, 255, 255, 1)'
+var hunterColor = 'rgba(170, 211, 114, 1)'
+var rogueColor = 'rgba(255, 244, 104, 1)'
+var warlockColor = 'rgba(135, 136, 238, 1)'
+var deathknightColor = 'rgba(196, 30, 58, 1)'
+mageColor = 'rgba(63, 199, 235, 1)'
+shamanColor = 'rgba(0, 112, 221, 1)'
+demonhunterColor = 'rbga(163, 48, 201, 1)'
+druidColor = 'rgba(255, 124, 10, 1)'
+monkColor = 'rgba(0, 255, 152, 1)'
+paladinColor = 'rgba(244, 140, 186, 1)'
+warriorColor = 'rgba(198, 155, 109, 1)'
 
 
 
@@ -44,18 +56,18 @@ function setChart(){
         datasets: [{
             data: defaultData,
             backgroundColor: [
-                'rgba(255, 255, 255, 1)',
-                'rgba(170, 211, 114, 1)',
-                'rgba(255, 244, 104, 1)',
-                'rgba(135, 136, 238, 1)',
-                'rgba(196, 30, 58, 1)',
-                'rgba(63, 199, 235, 1)',
-                'rgba(0, 112, 221, 1)',
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
+                priestColor,
+                hunterColor,
+                rogueColor,
+                warlockColor,
+                deathknightColor,
+                mageColor,
+                shamanColor,
+                demonhunterColor,
+                druidColor,
+                monkColor,
+                paladinColor,
+                warriorColor,
                 getRandomColor(),
                 getRandomColor(),
                 getRandomColor(),
@@ -121,18 +133,18 @@ function setChart(){
             label: '# of Votes',
             data: defaultData,
             backgroundColor: [
-                'rgba(255, 255, 255, 1)',
-                'rgba(170, 211, 114, 1)',
-                'rgba(255, 244, 104, 1)',
-                'rgba(135, 136, 238, 1)',
-                'rgba(196, 30, 58, 1)',
-                'rgba(63, 199, 235, 1)',
-                'rgba(0, 112, 221, 1)',
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
+            priestColor,
+                hunterColor,
+                rogueColor,
+                warlockColor,
+                deathknightColor,
+                mageColor,
+                shamanColor,
+                demonhunterColor,
+                druidColor,
+                monkColor,
+                paladinColor,
+                warriorColor,
                 getRandomColor(),
                 getRandomColor(),
                 getRandomColor(),
@@ -170,13 +182,18 @@ function setChart(){
                 getRandomColor(),
             ],
             borderColor: [
-                'rgba(255, 255, 255, 1)',
-                'rgba(170, 211, 114, 1)',
-                'rgba(255, 244, 104, 1)',
-                'rgba(135, 136, 238, 1)',
-                'rgba(196, 30, 58, 1)',
-                'rgba(63, 199, 235, 1)',
-                'rgba(0, 112, 221, 1)',
+            priestColor,
+                hunterColor,
+                rogueColor,
+                warlockColor,
+                deathknightColor,
+                mageColor,
+                shamanColor,
+                demonhunterColor,
+                druidColor,
+                monkColor,
+                paladinColor,
+                warriorColor,
             ],
             borderWidth: 1
         }]
