@@ -101,3 +101,4 @@ src/token.json
 src/settings.py
 src/produceSales.xlsx
 src/secret_key.txt
+src/key_file.txt
