@@ -93,15 +93,11 @@ class ChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        qs_count = user.objects.all().count()
         labels = ["Priests", "Hunters", "Rogues", "Warlocks", "Death Knights", "Mages", "Shamans", "Demon Hunters", "Druids", "Monks", "Paladins", "Warriors"]
-        #labels = produceNames
         default_items = [Priests, Hunters, Rogues, Warlocks, DeathKnights, Mages, Shamans, DemonHunters, Druids, Monks, Paladins, Warriors]
-        print(str(default_items))
-        #default_items = produceValues
         data = {
                 "labels": labels,
-                "default": default_items
+                "default": default_items,
         }
         return Response(data)
 

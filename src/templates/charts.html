@@ -212,8 +212,8 @@ function updateChart(chartName) {
     chartName.update();
 };
 
-
-$(myChart).ready(function() {
+//JQuery stuff
+$(myChart2).ready(function() {
     $("#updatebtn2").click(function() {
         updateChart(myChart2);
     });
@@ -224,13 +224,7 @@ $(myChart).ready(function() {
         updateChart(myChart);
     });
 });
-
-
 };
-
-// var ctx = document.getElementById("myChart");
-
-
 
 {% endblock %}
 </script>
