@@ -97,7 +97,7 @@ class ChartData(APIView):
         labels = ["Priests", "Hunters", "Rogues", "Warlocks", "Death Knights", "Mages", "Shamans", "Demon Hunters", "Druids", "Monks", "Paladins", "Warriors"]
         #labels = produceNames
         default_items = [Priests, Hunters, Rogues, Warlocks, DeathKnights, Mages, Shamans, DemonHunters, Druids, Monks, Paladins, Warriors]
-        
+        print(str(default_items))
         #default_items = produceValues
         data = {
                 "labels": labels,

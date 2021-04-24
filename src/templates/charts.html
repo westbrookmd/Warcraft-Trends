@@ -15,6 +15,8 @@ function getRandomColor() {
   return color;
 }
 
+
+
 var endpoint = '/api/chart/data/'
 var defaultData = []
 var labels = [];
@@ -49,7 +51,7 @@ var warriorColor = 'rgba(198, 155, 109, 1)';
 function setChart(){
     var ctx = document.getElementById("myChart");
     var ctx2 = document.getElementById("myChart2");
-    var myChart = new Chart(ctx2, {
+    var myChart2 = new Chart(ctx2, {
     type: 'bar',
     data: {
         labels: labels,
@@ -205,7 +207,27 @@ function setChart(){
     }
 });
 
-}
+function updateChart(chartName) {
+    chartName.data.datasets[0].data = [14, 1, 4, 36, 12, 20, 18, 4, 3, 8, 12, 24];
+    chartName.update();
+};
+
+
+$(myChart).ready(function() {
+    $("#updatebtn2").click(function() {
+        updateChart(myChart2);
+    });
+});
+
+$(myChart).ready(function() {
+    $("#updatebtn").click(function() {
+        updateChart(myChart);
+    });
+});
+
+
+};
+
 // var ctx = document.getElementById("myChart");
 
 
@@ -217,7 +239,7 @@ function setChart(){
 
 <div class='row'>
     <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
-        <h1>Warcraft Trends</h1>
+        <h1>Warcraft Trends <button class ="btn btn-success"  id="updatebtn" value="Click">Update</button><button class ="btn btn-success"  id="updatebtn2" value="Click">Update2</button></h1>
         <div class='col-sm-6'>
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
