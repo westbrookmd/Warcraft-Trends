@@ -230,6 +230,14 @@ $(myChart).ready(function() {
     $("#updatebtn").click(function() {
         updateChart(myChart, updateBtnCount);
         updateBtnCount += 1;
+        var change = document.getElementById("updatebtn");
+        if (change.innerHTML == "Change First Graph to Bogus Data")
+                {
+                    change.innerHTML = "Change First Graph Back to JSON";
+                }
+                else {
+                    change.innerHTML = "Change First Graph to Bogus Data";
+                }
     });
 });
 };
@@ -241,7 +249,7 @@ $(myChart).ready(function() {
 
 <div class='row'>
     <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
-        <h1>Warcraft Trends <button class ="btn btn-success"  id="updatebtn" value="Click">Update</button><button class ="btn btn-success"  id="updatebtn2" value="Click">Update2</button></h1>
+        <h1>Warcraft Trends <button class ="btn btn-success"  id="updatebtn" value="Click">Change First Graph to Bogus Data</button><button class ="btn btn-success"  id="updatebtn2" value="Click">Update2</button></h1>
         <div class='col-sm-6'>
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
