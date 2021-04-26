@@ -219,12 +219,6 @@ function updateChart(chartName, count) {
 };
 
 //JQuery stuff
-$(myChart2).ready(function() {
-    $("#updatebtn2").click(function() {
-        updateChart(myChart2, updateBtn2Count);
-        updateBtn2Count += 1;
-    });
-});
 
 $(myChart).ready(function() {
     $("#updatebtn").click(function() {
@@ -240,6 +234,41 @@ $(myChart).ready(function() {
                 }
     });
 });
+
+$(myChart2).ready(function() {
+    $("#updatebtn2").click(function() {
+        updateChart(myChart2, updateBtn2Count);
+        updateBtn2Count += 1;
+        var change = document.getElementById("updatebtn2");
+        if (change.innerHTML == "Change Second Graph to Bogus Data")
+                {
+                    change.innerHTML = "Change Second Graph Back to JSON";
+                }
+                else {
+                    change.innerHTML = "Change Second Graph to Bogus Data";
+                }
+    });
+});
+
+$(myChart).ready(function() {
+    $("#cars").change(function() {
+        var valueofcar = $("#cars").find(":selected").text();
+        
+        if (valueofcar == "Bogus" ){
+            updateBtn2Count = 0;
+            updateChart(myChart2, updateBtn2Count);
+
+        }
+        if (valueofcar == "JSON" ){
+            updateBtn2Count = 1;
+            updateChart(myChart2, updateBtn2Count);
+        }
+
+    });
+        
+});
+
+
 };
 
 {% endblock %}
@@ -249,12 +278,21 @@ $(myChart).ready(function() {
 
 <div class='row'>
     <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
-        <h1>Warcraft Trends <button class ="btn btn-success"  id="updatebtn" value="Click">Change First Graph to Bogus Data</button><button class ="btn btn-success"  id="updatebtn2" value="Click">Update2</button></h1>
+        <h1>Warcraft Trends</h1>
+        <h2><label for="cars">Select a Dataset:</label>
+
+            <select name="cars" id="cars">
+            <option value="">Select an option</option>
+              <option value = "json">JSON</option>
+              <option value="bogus">Bogus</option>
+            </select></h2>
         <div class='col-sm-6'>
             <canvas id="myChart" width="400" height="400"></canvas>
+            <button class ="btn btn-success"  id="updatebtn" value="Click">Change First Graph to Bogus Data</button>
         </div>
         <div class='col-sm-6'>
             <canvas id="myChart2" width="400" height="400"></canvas>
+            <button class ="btn btn-success"  id="updatebtn2" value="Click">Change Second Graph to Bogus Data</button>
         </div>
 
 
