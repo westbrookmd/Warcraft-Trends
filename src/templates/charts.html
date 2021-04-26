@@ -45,7 +45,8 @@ var druidColor = 'rgba(255, 124, 10, 1)';
 var monkColor = 'rgba(0, 255, 152, 1)';
 var paladinColor = 'rgba(244, 140, 186, 1)';
 var warriorColor = 'rgba(198, 155, 109, 1)';
-
+var updateBtnCount = 0
+var updateBtn2Count = 0
 
 
 function setChart(){
@@ -207,21 +208,28 @@ function setChart(){
     }
 });
 
-function updateChart(chartName) {
-    chartName.data.datasets[0].data = [14, 1, 4, 36, 12, 20, 18, 4, 3, 8, 12, 24];
+function updateChart(chartName, count) {
+    if (count %2 == 0){
+        chartName.data.datasets[0].data = [14, 1, 4, 36, 12, 20, 18, 4, 3, 8, 12, 24];
+    }
+    else{
+        chartName.data.datasets[0].data = defaultData
+    } 
     chartName.update();
 };
 
 //JQuery stuff
 $(myChart2).ready(function() {
     $("#updatebtn2").click(function() {
-        updateChart(myChart2);
+        updateChart(myChart2, updateBtn2Count);
+        updateBtn2Count += 1;
     });
 });
 
 $(myChart).ready(function() {
     $("#updatebtn").click(function() {
-        updateChart(myChart);
+        updateChart(myChart, updateBtnCount);
+        updateBtnCount += 1;
     });
 });
 };
