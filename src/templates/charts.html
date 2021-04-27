@@ -253,15 +253,23 @@ $(myChart2).ready(function() {
 $(myChart).ready(function() {
     $("#cars").change(function() {
         var valueofcar = $("#cars").find(":selected").text();
-        
+        var change = document.getElementById("updatebtn2");
+        var change1 = document.getElementById("updatebtn");
+
         if (valueofcar == "Bogus" ){
-            updateBtn2Count = 0;
-            updateChart(myChart2, updateBtn2Count);
+            updateChart(myChart2, 0);
+            updateChart(myChart, 0);
+            change.innerHTML = "Change Second Graph Back to JSON";
+            change1.innerHTML = "Change First Graph Back to JSON";
+
 
         }
         if (valueofcar == "JSON" ){
-            updateBtn2Count = 1;
-            updateChart(myChart2, updateBtn2Count);
+
+            updateChart(myChart2, 1);
+            updateChart(myChart, 1);
+            change.innerHTML = "Change Second Graph Back to Bogus Data";
+            change1.innerHTML = "Change First Graph Back to Bogus Data";
         }
 
     });
