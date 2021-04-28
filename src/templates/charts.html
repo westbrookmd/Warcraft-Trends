@@ -259,17 +259,17 @@ $(myChart).ready(function() {
         if (valueofcar == "Bogus" ){
             updateChart(myChart2, 0);
             updateChart(myChart, 0);
-            change.innerHTML = "Change Second Graph Back to JSON";
-            change1.innerHTML = "Change First Graph Back to JSON";
+            change.innerHTML = "Change Second Graph to Beta Bug Reports";
+            change1.innerHTML = "Change First Graph to Beta Bug Reports";
 
 
         }
-        if (valueofcar == "JSON" ){
+        if (valueofcar == "Beta Bug Reports" ){
 
             updateChart(myChart2, 1);
             updateChart(myChart, 1);
-            change.innerHTML = "Change Second Graph Back to Bogus Data";
-            change1.innerHTML = "Change First Graph Back to Bogus Data";
+            change.innerHTML = "Change Second Graph to Bogus Data";
+            change1.innerHTML = "Change First Graph to Bogus Data";
         }
 
     });
@@ -291,7 +291,7 @@ $(myChart).ready(function() {
 
             <select name="cars" id="cars">
             <option value="">Select an option</option>
-              <option value = "json">JSON</option>
+              <option value = "json">Beta Bug Reports</option>
               <option value="bogus">Bogus</option>
             </select></h2>
         <div class='col-sm-6'>
