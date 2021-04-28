@@ -287,19 +287,23 @@ $(myChart).ready(function() {
 <div class='row'>
     <div class='col-sm-12' url-endpoint='{% url "api-data" %}'>
         <h1>Warcraft Trends</h1>
-        <h2><label for="cars">Select a Dataset:</label>
+        <h2><label for="cars">Select a Dataset For Both Charts:</label>
 
             <select name="cars" id="cars">
-            <option value="">Select an option</option>
+            <option value="">Select here</option>
               <option value = "json">Beta Bug Reports</option>
               <option value="bogus">Bogus</option>
             </select></h2>
+            <br>
+            <br>
         <div class='col-sm-6'>
             <canvas id="myChart" width="400" height="400"></canvas>
+            <br>
             <button class ="btn btn-success"  id="updatebtn" value="Click">Change First Graph to Bogus Data</button>
         </div>
         <div class='col-sm-6'>
             <canvas id="myChart2" width="400" height="400"></canvas>
+            <br>
             <button class ="btn btn-success"  id="updatebtn2" value="Click">Change Second Graph to Bogus Data</button>
         </div>
 
