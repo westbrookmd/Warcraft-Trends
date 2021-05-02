@@ -11,25 +11,25 @@ from rest_framework.response import Response
 #sheetName = '1JCVnNPNvjvecRMULcCNffGjbYFKb7Are0DvQcaS7G_A'
 #ss = ezsheets.Spreadsheet(sheetName)
 
-wb = openpyxl.load_workbook('produceSales.xlsx')
-sheet = wb['Sheet']
+#wb = openpyxl.load_workbook('produceSales.xlsx')
+#sheet = wb['Sheet']
 
-maxColumn = sheet.max_column
-
-
-maxRow = sheet.max_row
+#maxColumn = sheet.max_column
 
 
-produceNames = []
-for i in range(2, 50):
-    cellData = sheet.cell(row = i, column = 1)
-    produceNames.append(cellData.value)
+#maxRow = sheet.max_row
 
 
-produceValues = []
-for i in range(2, 50):
-    cellData = sheet.cell(row = i, column = 2)
-    produceValues.append(cellData.value)
+#produceNames = []
+#for i in range(2, 50):
+#    cellData = sheet.cell(row = i, column = 1)
+#    produceNames.append(cellData.value)
+
+
+#produceValues = []
+#for i in range(2, 50):
+#    cellData = sheet.cell(row = i, column = 2)
+#    produceValues.append(cellData.value)
 
 
 
@@ -38,6 +38,8 @@ with open('wow_issues.json') as json_file:
 
 wowClasses = []
 wowClassesUnclassified = 0
+
+# Getting all class labels from issues
 for issue in range(len(wowData)-1):
     try:
         wowClasses.append(wowData[issue]['labels'][-1]['name'])
@@ -45,7 +47,7 @@ for issue in range(len(wowData)-1):
         wowClassesUnclassified += 1
 
 
-
+# Counting how many times each class is listed in issues
 user = get_user_model()
 Priests = sum('Priest' in s for s in wowClasses)
 Hunters = sum('Hunter' in s for s in wowClasses)
